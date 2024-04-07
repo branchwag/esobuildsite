@@ -35,5 +35,10 @@ func main() {
 		//return c.String(http.StatusOK, "Hello, World!")
 		return c.Render(http.StatusOK, "index", "muhaha")
 	})
+
+	e.GET("/sorcerer", func(c echo.Context) error {
+		return c.Render(http.StatusOK, "sorcerer", "buildinfo")
+	})
+
 	e.Logger.Fatal(e.Start(":1323"))
 }
