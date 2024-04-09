@@ -29,11 +29,9 @@ func main() {
 
 	e.Renderer = NewTemplates()
 
-	e.Static("/styles", "styles")
-
 	e.GET("/", func(c echo.Context) error {
-		//return c.String(http.StatusOK, "Hello, World!")
-		return c.Render(http.StatusOK, "index", "muhaha")
+		
+		return c.Render(http.StatusOK, "index", "data")
 	})
 
 	e.GET("/sorcerer", func(c echo.Context) error {
