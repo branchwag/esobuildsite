@@ -38,5 +38,29 @@ func main() {
 		return c.Render(http.StatusOK, "sorcerer", "buildinfo")
 	})
 
+	e.GET("/necromancer", func(c echo.Context) error {
+		return c.Render(http.StatusOK, "necro", "buildinfo")
+	})
+
+	e.GET("/arcanist", func(c echo.Context) error {
+		return c.Render(http.StatusOK, "arcanist", "buildinfo")
+	})
+
+	e.GET("/warden", func(c echo.Context) error {
+		return c.Render(http.StatusOK, "warden", "buildinfo")
+	})
+
+	e.GET("/dragonknight", func(c echo.Context) error {
+		return c.Render(http.StatusOK, "dk", "buildinfo")
+	})
+
+	e.GET("/nightblade", func(c echo.Context) error {
+		return c.Render(http.StatusOK, "nb", "buildinfo")
+	})
+
+	e.GET("/templar", func(c echo.Context) error {
+		return c.Render(http.StatusOK, "templar", "buildinfo")
+	})
+
 	e.Logger.Fatal(e.Start(":1323"))
 }
