@@ -12,6 +12,7 @@ func main() {
 
 	router.LoadHTMLGlob("pages/*.html")
 	router.Static("images", "./images")
+	router.Static("fonts", "./fonts")
 
 	router.GET("/", func(c *gin.Context){
 		c.HTML(http.StatusOK, "index.html", "")
