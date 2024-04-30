@@ -1,3 +1,12 @@
 parchment and ink theme
+spilt ink somehow?
 
-font: https://fonts.google.com/specimen/Homemade+Apple?classification=Handwriting
+template for displaying all build info:
+cp
+food
+skills
+gear
+attributes
+race 
+
+fix tailwind to not be a cdn so we can use it for fonts, page background (this is manually plugged into every page right now. Need a way to link once, display everywhere)

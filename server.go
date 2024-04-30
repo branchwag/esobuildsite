@@ -30,6 +30,10 @@ func main() {
 		c.HTML(http.StatusOK, "necro.html", "")
 	})
 
+	router.GET("/nightblade", func(c *gin.Context){
+		c.HTML(http.StatusOK, "nightblade.html", "")
+	})
+
 	router.GET("/sorcerer", func(c *gin.Context){
 		c.HTML(http.StatusOK, "sorc.html", "")
 	})
