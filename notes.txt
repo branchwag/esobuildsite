@@ -10,3 +10,4 @@ attributes
 race 
 
 fix tailwind to not be a cdn so we can use it for fonts, page background (this is manually plugged into every page right now. Need a way to link once, display everywhere)
+https://templ.guide/ - make build stuff template

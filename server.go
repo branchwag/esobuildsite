@@ -8,6 +8,9 @@ import (
 
 
 func main() {
+
+	buildSections := []string{"cp", "gear", "food", "skills", "race"}
+
 	router := gin.Default()
 
 	router.LoadHTMLGlob("pages/*.html")
@@ -19,31 +22,45 @@ func main() {
 	})
 
 	router.GET("/arcanist", func(c *gin.Context){
-		c.HTML(http.StatusOK, "arcanist.html", "")
+		c.HTML(http.StatusOK, "arcanist.html", gin.H{
+            "BuildSections": buildSections,
+        })
 	})
 
 	router.GET("/dragonknight", func(c *gin.Context){
-		c.HTML(http.StatusOK, "dragonknight.html", "")
+		c.HTML(http.StatusOK, "dragonknight.html", gin.H{
+            "BuildSections": buildSections,
+        })
 	})
 
 	router.GET("/necromancer", func(c *gin.Context){
-		c.HTML(http.StatusOK, "necro.html", "")
+		c.HTML(http.StatusOK, "necro.html", gin.H{
+            "BuildSections": buildSections,
+        })
 	})
 
 	router.GET("/nightblade", func(c *gin.Context){
-		c.HTML(http.StatusOK, "nightblade.html", "")
+		c.HTML(http.StatusOK, "nightblade.html", gin.H{
+            "BuildSections": buildSections,
+        })
 	})
 
 	router.GET("/sorcerer", func(c *gin.Context){
-		c.HTML(http.StatusOK, "sorc.html", "")
+		c.HTML(http.StatusOK, "sorc.html", gin.H{
+            "BuildSections": buildSections,
+        })
 	})
 
 	router.GET("/templar", func(c *gin.Context){
-		c.HTML(http.StatusOK, "templar.html", "")
+		c.HTML(http.StatusOK, "templar.html", gin.H{
+            "BuildSections": buildSections,
+        })
 	})
 
 	router.GET("warden", func(c *gin.Context){
-		c.HTML(http.StatusOK, "warden.html", "")
+		c.HTML(http.StatusOK, "warden.html", gin.H{
+            "BuildSections": buildSections,
+        })
 	})
 
 	router.Run();
