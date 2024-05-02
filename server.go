@@ -1,7 +1,10 @@
 package main
 
 import (
+	"html/template"
 	"net/http"
+	"os"
+	"path/filepath"
 
 	"github.com/gin-gonic/gin"
 )
@@ -9,59 +12,67 @@ import (
 
 func main() {
 
-	buildSections := []string{"cp", "gear", "food", "skills", "race"}
+	r := gin.Default()
+	r.SetHTMLTemplate(loadTemplates("templates"))
 
-	router := gin.Default()
+	r.Static("images", "./images")
+	r.Static("fonts", "./fonts")
 
-	router.LoadHTMLGlob("pages/*.html")
-	router.Static("images", "./images")
-	router.Static("fonts", "./fonts")
-
-	router.GET("/", func(c *gin.Context){
+	r.GET("/", func(c *gin.Context){
 		c.HTML(http.StatusOK, "index.html", "")
 	})
 
-	router.GET("/arcanist", func(c *gin.Context){
-		c.HTML(http.StatusOK, "arcanist.html", gin.H{
-            "BuildSections": buildSections,
-        })
+	r.GET("/arcanist", func(c *gin.Context){
+		c.HTML(http.StatusOK, "arcanist.html", "")
 	})
 
-	router.GET("/dragonknight", func(c *gin.Context){
-		c.HTML(http.StatusOK, "dragonknight.html", gin.H{
-            "BuildSections": buildSections,
-        })
+	r.GET("/dragonknight", func(c *gin.Context){
+		c.HTML(http.StatusOK, "dragonknight.html", "")
 	})
 
-	router.GET("/necromancer", func(c *gin.Context){
-		c.HTML(http.StatusOK, "necro.html", gin.H{
-            "BuildSections": buildSections,
-        })
+	r.GET("/necromancer", func(c *gin.Context){
+		c.HTML(http.StatusOK, "necro.html", "")
 	})
 
-	router.GET("/nightblade", func(c *gin.Context){
-		c.HTML(http.StatusOK, "nightblade.html", gin.H{
-            "BuildSections": buildSections,
-        })
+	r.GET("/nightblade", func(c *gin.Context){
+		c.HTML(http.StatusOK, "nightblade.html", "")
 	})
 
-	router.GET("/sorcerer", func(c *gin.Context){
-		c.HTML(http.StatusOK, "sorc.html", gin.H{
-            "BuildSections": buildSections,
-        })
+	r.GET("/sorcerer", func(c *gin.Context){
+		c.HTML(http.StatusOK, "sorc.html", "")
 	})
 
-	router.GET("/templar", func(c *gin.Context){
-		c.HTML(http.StatusOK, "templar.html", gin.H{
-            "BuildSections": buildSections,
-        })
+	r.GET("/templar", func(c *gin.Context){
+		c.HTML(http.StatusOK, "templar.html", "")
 	})
 
-	router.GET("warden", func(c *gin.Context){
-		c.HTML(http.StatusOK, "warden.html", gin.H{
-            "BuildSections": buildSections,
-        })
+	r.GET("warden", func(c *gin.Context){
+		c.HTML(http.StatusOK, "warden.html", "")
 	})
 
-	router.Run();
+	r.Run();
+}
+
+func loadTemplates(templatesDir string) *template.Template {
+    templ := template.New("")
+
+    filepath.WalkDir(templatesDir, func(path string, d os.DirEntry, err error) error {
+        if err != nil {
+            return err
+        }
+        if !d.IsDir() && filepath.Ext(path) == ".html" {
+            content, err := os.ReadFile(path)
+            if err != nil {
+                return err
+            }
+			name := filepath.Base(path) // Get the base file name
+            _, err = templ.New(name).Parse(string(content)) // Use the base file name as the template name
+            if err != nil {
+                return err
+            }
+        }
+        return nil
+    })
+
+    return templ
 }

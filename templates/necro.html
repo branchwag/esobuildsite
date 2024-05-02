@@ -21,11 +21,7 @@
       class="text-black flex flex-col justify-center items-center w-screen h-screen"
     >
       <p>build: cal's legacy</p>
-      <ul>
-        {{range .BuildSections}}
-        <li>{{.}}</li>
-        {{end}}
-      </ul>
+      {{ template "partials/buildinfo" . }}
     </div>
   </body>
 </html>
