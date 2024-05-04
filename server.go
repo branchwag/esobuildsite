@@ -17,56 +17,56 @@ func main() {
 
 	r.GET("/", func(c *gin.Context){
 		c.HTML(http.StatusOK, "layout.html", gin.H{
-			"Title":   "Page",
+			"Title":   "ESO Builds",
 			"Content": "index.html",
 		})
 	})
 
 	r.GET("/arcanist", func(c *gin.Context){
 		c.HTML(http.StatusOK, "layout.html", gin.H{
-			"Title":   "Page",
+			"Title":   "Arcanist",
 			"Content": "arcanist.html",
 		})
 	})
 
 	r.GET("/dragonknight", func(c *gin.Context){
 		c.HTML(http.StatusOK, "layout.html", gin.H{
-			"Title":   "Page",
+			"Title":   "Dragonknight",
 			"Content": "dragonknight.html",
 		})
 	})
 
 	r.GET("/necromancer", func(c *gin.Context){
 		c.HTML(http.StatusOK, "layout.html", gin.H{
-			"Title":   "Page",
+			"Title":   "Necromancer",
 			"Content": "necromancer.html",
 		})
 	})
 
 	r.GET("/nightblade", func(c *gin.Context){
 		c.HTML(http.StatusOK, "layout.html", gin.H{
-			"Title":   "Page",
+			"Title":   "Nightblade",
 			"Content": "nightblade.html",
 		})
 	})
 
 	r.GET("/sorcerer", func(c *gin.Context){
 		c.HTML(http.StatusOK, "layout.html", gin.H{
-			"Title":   "Page",
+			"Title":   "Sorcerer",
 			"Content": "sorcerer.html",
 		})
 	})
 
 	r.GET("/templar", func(c *gin.Context){
 		c.HTML(http.StatusOK, "layout.html", gin.H{
-			"Title":   "Page",
+			"Title":   "Templar",
 			"Content": "templar.html",
 		})
 	})
 
 	r.GET("/warden", func(c *gin.Context){
 		c.HTML(http.StatusOK, "layout.html", gin.H{
-			"Title":   "Page",
+			"Title":   "Warden",
 			"Content": "warden.html",
 		})
 	})
