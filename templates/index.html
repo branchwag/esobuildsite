@@ -1,23 +1,4 @@
-
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>ESO builds</title>
-    <link rel="stylesheet" href="../fonts/fonts.css">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script
-      src="https://unpkg.com/htmx.org@1.9.11"
-      integrity="sha384-0gxUXCCR8yv9FM2b+U3FDbsKthCI66oH5IA9fHppQq9DDMHuMauqq1ZHBpJxQ0J0"
-      crossorigin="anonymous"
-    ></script>
-  </head>
-  <body class="overflow-hidden bg-cover bg-center" style="background-image: url(../images/background.jpg)">
-    <div
-      class="text-black flex flex-col justify-center items-center w-screen h-screen"
-    >
+{{ define "content" }}
       <h1 class="px-8 text-9xl">ESO Builds</h1>
       <img
               src="../images/esobuildslogo.png"
@@ -32,6 +13,4 @@
           <a href="/sorcerer"><p>Sorcerer</p></a>
           <a href="/templar"><p>Templar</p></a>
           <a href="/warden"><p>Warden</p></a>
-    </div>
-  </body>
-</html>
+{{ end }}
