@@ -64,7 +64,7 @@ func main() {
 		})
 	})
 
-	r.GET("warden", func(c *gin.Context){
+	r.GET("/warden", func(c *gin.Context){
 		c.HTML(http.StatusOK, "layout.html", gin.H{
 			"Title":   "Page",
 			"Content": "warden.html",
