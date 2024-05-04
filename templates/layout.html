@@ -20,7 +20,25 @@
     <div
       class="text-black flex flex-col justify-center items-center w-screen h-screen"
     >
-      {{ .Content }}
+    {{ if eq .Content "index.html" }}
+      {{ template "index.html" . }}
+    {{ else if eq .Content "arcanist.html" }}
+      {{ template "arcanist.html" . }}
+    {{ else if eq .Content "necromancer.html" }}
+      {{ template "necromancer.html" . }}
+    {{ else if eq .Content "dragonknight.html" }}
+      {{ template "dragonknight.html" . }}
+    {{ else if eq .Content "nightblade.html" }}
+      {{ template "nightblade.html" . }}
+    {{ else if eq .Content "sorcerer.html" }}
+      {{ template "sorcerer.html" . }}
+    {{ else if eq .Content "templar.html" }}
+      {{ template "templar.html" . }}
+    {{ else if eq .Content "warden.html" }}
+     {{ template "warden.html" . }}
+    {{ else }}
+    <p>page not found</p>
+    {{ end }}
     </div>
   </body>
 </html>
